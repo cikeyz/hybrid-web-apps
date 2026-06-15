@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.ckortiz.puphymn" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>PUP Hymn</name>
+    <description>
+        PUP Hymn karaoke player - per-word synced lyrics with playback controls,
+        seek bar, and a maroon-branded layout inspired by the PUP website.
+        Packaged from Activity-01 (CMPE 364 Web and Mobile Systems).
+    </description>
+    <author email="carlkristianrortiz@iskolarngbayan.pup.edu.ph">
+        Carl Kristian R. Ortiz
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <preference name="android-minSdkVersion" value="24" />
+
+    <!-- POST_NOTIFICATIONS is required on Android 13+ (API 33+) for the
+         media notification to appear. The music-controls2 plugin does not
+         add it automatically. -->
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+        <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    </config-file>
+
+    <!-- Branded launcher icons.
+         - Legacy ic_launcher.png per density (pre-8.0) via <icon>.
+         - Adaptive icon for Android 8.0+ shipped as raw <resource-file>s
+           INSIDE <platform name="android"> (top-level resource-files are
+           ignored by cordova-android 15): foreground PNGs + the adaptive-icon
+           XML + the background color. The system mask applies with no box outline. -->
+    <platform name="android">
+        <icon src="res/mipmap-mdpi/ic_launcher.png" density="mdpi" />
+        <icon src="res/mipmap-hdpi/ic_launcher.png" density="hdpi" />
+        <icon src="res/mipmap-xhdpi/ic_launcher.png" density="xhdpi" />
+        <icon src="res/mipmap-xxhdpi/ic_launcher.png" density="xxhdpi" />
+        <icon src="res/mipmap-xxxhdpi/ic_launcher.png" density="xxxhdpi" />
+        <resource-file src="res/values/colors.xml" target="app/src/main/res/values/colors.xml" />
+        <resource-file src="res/mipmap-mdpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" />
+        <resource-file src="res/mipmap-hdpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" />
+        <resource-file src="res/mipmap-xhdpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" />
+        <resource-file src="res/mipmap-xxhdpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" />
+        <resource-file src="res/mipmap-xxxhdpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" />
+        <resource-file src="res/mipmap-anydpi-v26/ic_launcher.xml" target="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" />
+    </platform>
+
+    <!-- Splash screen: branded PUP seal on white.
+         Cordova-android 12+ uses the Android 12+ SplashScreen API. Without
+         AndroidWindowSplashScreenAnimatedIcon it falls back to the Cordova
+         robot; this override points it at the generated splash_icon.png. -->
+    <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/drawable/splash_icon.png" />
+    <preference name="AndroidWindowSplashScreenBackground" value="#FFFFFF" />
+    <preference name="AndroidWindowSplashScreenIconBackgroundColor" value="#FFFFFF" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="FadeSplashScreenDuration" value="0" />
+
+    <!-- Status bar: solid maroon bar matching the top header. -->
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#800000" />
+</widget>

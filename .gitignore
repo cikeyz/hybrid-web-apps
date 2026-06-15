@@ -1,0 +1,18 @@
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Cordova / npm (rebuild locally)
+**/node_modules/
+**/platforms/
+**/plugins/
+**/package-lock.json
+
+# Secrets
+.env
+
+# Binaries / demos (use Releases if needed)
+*.apk
+*.mp4

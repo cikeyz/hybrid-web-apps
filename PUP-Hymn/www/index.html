@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        
+        <meta charset="UTF-8" />
+
+        <!-- Standard responsive viewport so the layout behaves on phones too -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>PUP Hymn</title>
+
+        
+        <link rel="icon" type="image/svg+xml" href="assets/PUP-Logo.svg" />
+
+        
+        <link rel="stylesheet" href="assets/montserrat/montserrat.css" />
+
+        
+        <link rel="stylesheet" href="assets/phosphor/regular.css" />
+        <link rel="stylesheet" href="assets/phosphor/fill.css" />
+
+        <!-- Main stylesheet for the page layout, colors, and component styling -->
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        
+        <header class="topbar">
+            <!-- Left side holds the logo and the school name -->
+            <div class="topbar-brand">
+                <!-- SVG keeps the logo sharp even if the size changes -->
+                <img
+                    src="assets/PUP-Logo.svg"
+                    alt="PUP Logo"
+                    class="topbar-logo"
+                />
+
+                <!-- School name and tagline are stacked here -->
+                <div class="topbar-text">
+                    <span class="topbar-title"
+                        >Polytechnic University of the Philippines</span
+                    >
+                    <span class="topbar-sub"
+                        >The Country's 1st PolytechnicU</span
+                    >
+                </div>
+            </div>
+        </header>
+
+        <!-- ----- MAIN PLAYER AREA -----
+         Main split layout: sidebar on the left, lyrics area on the right. -->
+        <main class="player">
+            
+            <aside class="sidebar">
+                
+                <div class="album-art">
+                    <img
+                        src="assets/PUP-Pylon.jpg"
+                        alt="PUP Pylon Monument"
+                        class="album-img"
+                    />
+                </div>
+
+                <!-- Basic song info -->
+                <h2 class="song-title">Imno ng PUP</h2>
+                <p class="song-artist">PUP Hymn · 1986</p>
+
+                <!-- Extra info card for the composers and performing group -->
+                <div class="hymn-info">
+                    <h3 class="info-heading">About the Hymn</h3>
+
+                    <!-- First row lists the composers -->
+                    <div class="info-row">
+                        <span class="info-label">Composers</span>
+                        <span class="info-value">Prof. Siegfredo Calabig</span>
+                        <span class="info-value">Prof. Susan Roldan</span>
+                        <span class="info-value">Mr. Rafael Amaranto</span>
+                    </div>
+
+                    <!-- Second row shows the performing ensemble -->
+                    <div class="info-row">
+                        <span class="info-label">Ensemble</span>
+                        <span class="info-value">Banda Kawayan Pilipinas</span>
+                    </div>
+                </div>
+            </aside>
+
+            
+            <section class="lyrics-panel" id="lyricsPanel">
+                <p class="lyrics-placeholder">Press play to begin</p>
+            </section>
+        </main>
+
+        
+        <div class="controls-bar">
+            
+            <audio
+                id="audio"
+                src="assets/PUP-Hymn.mp3"
+                preload="metadata"
+            ></audio>
+
+            <!-- Rewind button jumps back by 5 seconds -->
+            <button
+                type="button"
+                class="control-btn"
+                id="rewind-btn"
+                title="Rewind 5s"
+                aria-label="Rewind 5 seconds"
+            >
+                <i class="ph ph-rewind"></i>
+            </button>
+
+            <!-- Main play/pause button.
+         JavaScript swaps which icon is visible depending on the audio state. -->
+            <button
+                type="button"
+                class="play-btn"
+                id="playBtn"
+                aria-label="Play or Pause"
+            >
+                <!-- Show this icon while the audio is paused -->
+                <i class="ph-fill ph-play icon-play" id="iconPlay"></i>
+                <!-- Show this icon while the audio is already playing -->
+                <i
+                    class="ph-fill ph-pause icon-pause"
+                    id="iconPause"
+                    style="display: none"
+                ></i>
+            </button>
+
+            <!-- Forward button jumps ahead by 5 seconds -->
+            <button
+                type="button"
+                class="control-btn"
+                id="forward-btn"
+                title="Forward 5s"
+                aria-label="Forward 5 seconds"
+            >
+                <i class="ph ph-fast-forward"></i>
+            </button>
+
+            <!-- Progress area holds current time, the seek bar, and total duration -->
+            <div class="progress-wrapper">
+                <!-- Current playback time updates while the song is running -->
+                <span class="time-label" id="timeCurrent">00:00</span>
+
+                
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+
+                <!-- Total duration gets set once the audio metadata is loaded -->
+                <span class="time-label" id="timeTotal">0:00</span>
+            </div>
+        </div>
+
+        
+        <script src="cordova.js"></script>
+
+        <!-- Main JavaScript file for parsing lyrics, syncing highlights, and handling controls -->
+        <script src="script.js"></script>
+    </body>
+</html>

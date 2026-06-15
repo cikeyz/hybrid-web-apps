@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.ckortiz.studentreg" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Student Registration</name>
+    <description>
+        Student registration form for the Computer Engineering Department,
+        PUP Manila - notebook-styled multi-section form with validation,
+        password strength meter, and live character counters.
+        Packaged from Activity-03 (CMPE 364 Web and Mobile Systems).
+    </description>
+    <author email="carlkristianrortiz@iskolarngbayan.pup.edu.ph">
+        Carl Kristian R. Ortiz
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <preference name="android-minSdkVersion" value="24" />
+
+    <!-- Branded launcher icons. Legacy <icon> PNGs for pre-8.0; adaptive
+         icon (foreground PNGs + XML + color) shipped as <resource-file>s
+         INSIDE <platform> (top-level resource-files are ignored). -->
+    <platform name="android">
+        <icon src="res/mipmap-mdpi/ic_launcher.png" density="mdpi" />
+        <icon src="res/mipmap-hdpi/ic_launcher.png" density="hdpi" />
+        <icon src="res/mipmap-xhdpi/ic_launcher.png" density="xhdpi" />
+        <icon src="res/mipmap-xxhdpi/ic_launcher.png" density="xxhdpi" />
+        <icon src="res/mipmap-xxxhdpi/ic_launcher.png" density="xxxhdpi" />
+        <resource-file src="res/values/colors.xml" target="app/src/main/res/values/colors.xml" />
+        <resource-file src="res/mipmap-mdpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" />
+        <resource-file src="res/mipmap-hdpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" />
+        <resource-file src="res/mipmap-xhdpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" />
+        <resource-file src="res/mipmap-xxhdpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" />
+        <resource-file src="res/mipmap-xxxhdpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" />
+        <resource-file src="res/mipmap-anydpi-v26/ic_launcher.xml" target="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" />
+    </platform>
+
+    <!-- Splash screen: brown "S" on cream, matching the launcher icon.
+         Without this override Cordova-android 12+ shows the default robot. -->
+    <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/drawable/splash_icon.png" />
+    <preference name="AndroidWindowSplashScreenBackground" value="#FEFCF7" />
+    <preference name="AndroidWindowSplashScreenIconBackgroundColor" value="#FEFCF7" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="FadeSplashScreenDuration" value="0" />
+
+    <!-- Status bar: near-black to read as a top accent on the light page. -->
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#3d2b1f" />
+</widget>

@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Student Registration</title>
+        <meta
+            name="description"
+            content="Student registration form for the Computer Engineering Department, Polytechnic University of the Philippines, Manila."
+        />
+        <meta name="author" content="Student" />
+        <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+        
+        <link rel="stylesheet" href="assets/dm-fonts/dm-fonts.css" />
+
+        
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <main class="container">
+            
+            <header class="page-header">
+                <div>
+                    <p class="eyebrow">registration form</p>
+                    <h1>
+                        Student<br /><span class="accent-word"
+                            >Information</span
+                        >
+                    </h1>
+                    <p class="hero-subtitle">
+                        Fill in your details. Fields marked
+                        <span class="req" aria-hidden="true">*</span> are
+                        required.
+                    </p>
+                </div>
+                <div class="logo-bar">
+                    <img
+                        src="assets/pup-logo.png"
+                        alt="Polytechnic University of the Philippines seal"
+                        class="logo-img"
+                    />
+                    <div class="logo-divider" aria-hidden="true"></div>
+                    <img
+                        src="assets/cpe-logo.png"
+                        alt="Computer Engineering Department logo"
+                        class="logo-img"
+                    />
+                </div>
+            </header>
+
+            
+            <form
+                id="registration-form"
+                action="#"
+                method="post"
+                enctype="multipart/form-data"
+                novalidate
+            >
+                
+                <nav id="section-stepper" aria-label="Form Sections">
+                    <ol>
+                        <li>
+                            <button
+                                type="button"
+                                data-target="section-personal"
+                            >
+                                01
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                data-target="section-academic"
+                            >
+                                02
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" data-target="section-account">
+                                03
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" data-target="section-profile">
+                                04
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" data-target="section-selfid">
+                                05
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" data-target="section-notes">
+                                06
+                            </button>
+                        </li>
+                    </ol>
+                </nav>
+
+                
+                <fieldset class="form-section" id="section-personal">
+                    <legend>01. Personal Information</legend>
+
+                    <div class="grid-2col">
+                        <div class="input-group floating-group">
+                            <label for="fname"
+                                >First Name
+                                <span class="req" aria-hidden="true"
+                                    >*</span
+                                ></label
+                            >
+                            <input
+                                type="text"
+                                id="fname"
+                                name="fname"
+                                required
+                            />
+                        </div>
+                        <div class="input-group floating-group">
+                            <label for="lname"
+                                >Last Name
+                                <span class="req" aria-hidden="true"
+                                    >*</span
+                                ></label
+                            >
+                            <input
+                                type="text"
+                                id="lname"
+                                name="lname"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="grid-2col">
+                        <div class="input-group floating-group">
+                            <label for="dob"
+                                >Date of Birth
+                                <span class="req" aria-hidden="true"
+                                    >*</span
+                                ></label
+                            >
+                            <input type="date" id="dob" name="dob" required />
+                        </div>
+                        <div class="input-group floating-group">
+                            <label for="email"
+                                >Email Address
+                                <span class="req" aria-hidden="true"
+                                    >*</span
+                                ></label
+                            >
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="example@example.com"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="input-group floating-group">
+                        <label for="phone">Phone Number</label>
+                        <div class="input-prefix-wrap">
+                            <span class="country-code">+63</span>
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="000-000-0000"
+                            />
+                        </div>
+                    </div>
+
+                    <section
+                        class="address-block"
+                        aria-labelledby="address-heading"
+                    >
+                        <p class="group-label" id="address-heading">Address</p>
+                        <div class="input-group floating-group">
+                            <label for="address">Street Address</label>
+                            <input type="text" id="address" name="address" />
+                        </div>
+                        <div class="input-group floating-group">
+                            <label for="address2"
+                                >Street Address Line 2
+                                <span class="helper">(optional)</span></label
+                            >
+                            <input type="text" id="address2" name="address2" />
+                        </div>
+                        <div class="grid-2col">
+                            <div class="input-group floating-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city" />
+                            </div>
+                            <div class="input-group floating-group">
+                                <label for="state">State / Province</label>
+                                <input type="text" id="state" name="state" />
+                            </div>
+                        </div>
+                        <div class="input-group floating-group">
+                            <label for="zip">Postal / Zip Code</label>
+                            <input type="text" id="zip" name="zip" />
+                        </div>
+                    </section>
+                </fieldset>
+
+                
+                <fieldset class="form-section" id="section-academic">
+                    <legend>02. Academic Details</legend>
+
+                    <div class="input-group floating-group">
+                        <label for="program">Applying Specialization</label>
+                        <input
+                            type="text"
+                            id="program"
+                            name="program"
+                            placeholder="e.g. System Developments"
+                        />
+                    </div>
+
+                    <div class="input-group">
+                        <p class="group-label">Type of Enrollment</p>
+                        <div class="radio-group-flex">
+                            <label class="option-label"
+                                ><input
+                                    type="radio"
+                                    name="enrollment_type"
+                                    value="Regular"
+                                    checked
+                                />
+                                Regular</label
+                            >
+                            <label class="option-label"
+                                ><input
+                                    type="radio"
+                                    name="enrollment_type"
+                                    value="Irregular"
+                                />
+                                Irregular</label
+                            >
+                            <label class="option-label"
+                                ><input
+                                    type="radio"
+                                    name="enrollment_type"
+                                    value="Transferee"
+                                />
+                                Transferee</label
+                            >
+                            <label class="option-label"
+                                ><input
+                                    type="radio"
+                                    name="enrollment_type"
+                                    value="Returnee"
+                                />
+                                Returnee</label
+                            >
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="school_docs">Upload School Documents</label>
+                        <input
+                            type="file"
+                            id="school_docs"
+                            name="school_docs"
+                            accept=".pdf,.jpg,.png"
+                        />
+                        <div
+                            id="school-docs-filename"
+                            class="file-name-display"
+                        >
+                            no file selected
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="personal_statement"
+                            >Personal Statement</label
+                        >
+                        <textarea
+                            id="personal_statement"
+                            name="personal_statement"
+                            rows="4"
+                            placeholder="Share what drives you..."
+                        ></textarea>
+                    </div>
+                </fieldset>
+
+                
+                <fieldset class="form-section" id="section-account">
+                    <legend>03. Account Setup</legend>
+
+                    <div class="grid-2col">
+                        <div class="input-group floating-group">
+                            <label for="username"
+                                >Username
+                                <span class="req" aria-hidden="true"
+                                    >*</span
+                                ></label
+                            >
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                required
+                            />
+                        </div>
+                        <div class="input-group floating-group">
+                            <label for="age"
+                                >Age
+                                <span class="req" aria-hidden="true"
+                                    >*</span
+                                ></label
+                            >
+                            <input
+                                type="number"
+                                id="age"
+                                name="age"
+                                min="16"
+                                max="60"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="grid-2col">
+                        <div class="input-group floating-group">
+                            <div class="label-header">
+                                <label for="password"
+                                    >Password
+                                    <span class="req" aria-hidden="true"
+                                        >*</span
+                                    ></label
+                                >
+                                <button
+                                    type="button"
+                                    class="pwd-toggle"
+                                    data-target="password"
+                                >
+                                    show
+                                </button>
+                            </div>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                maxlength="128"
+                                required
+                            />
+                            <div id="pwd-strength" class="pwd-strength">
+                                <div class="strength-bars">
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                    <div class="bar"></div>
+                                </div>
+                                <span class="strength-label"></span>
+                            </div>
+                        </div>
+                        <div class="input-group floating-group">
+                            <div class="label-header">
+                                <label for="confirm_password"
+                                    >Confirm Password
+                                    <span class="req" aria-hidden="true"
+                                        >*</span
+                                    ></label
+                                >
+                                <button
+                                    type="button"
+                                    class="pwd-toggle"
+                                    data-target="confirm_password"
+                                >
+                                    show
+                                </button>
+                            </div>
+                            <input
+                                type="password"
+                                id="confirm_password"
+                                name="confirm_password"
+                                maxlength="128"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="grid-2col">
+                        <div class="input-group">
+                            <label for="program_track"
+                                >Preferred Program Track</label
+                            >
+                            <select id="program_track" name="program_track">
+                                <option value="" disabled selected>
+                                    -- Select a track --
+                                </option>
+                                <option value="Web Development">
+                                    Web Development
+                                </option>
+                                <option value="Mobile Development">
+                                    Mobile Development
+                                </option>
+                                <option value="Data Science">
+                                    Data Science
+                                </option>
+                                <option value="Cybersecurity">
+                                    Cybersecurity
+                                </option>
+                                <option value="Embedded Systems">
+                                    Embedded Systems
+                                </option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="skills_tools"
+                                >Skills / Tools Known</label
+                            >
+                            <select
+                                id="skills_tools"
+                                name="skills_tools[]"
+                                multiple
+                                size="5"
+                            >
+                                <option value="HTML/CSS">HTML/CSS</option>
+                                <option value="JavaScript">JavaScript</option>
+                                <option value="Python">Python</option>
+                                <option value="Java">Java</option>
+                                <option value="C/C++">C/C++</option>
+                                <option value="SQL">SQL</option>
+                                <option value="Git">Git</option>
+                                <option value="Figma">Figma</option>
+                            </select>
+                            <span class="helper-text-block"
+                                >Tap to select, tap again to add more</span
+                            >
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <p class="group-label">
+                            Tech Interests
+                            <span class="req" aria-hidden="true">*</span>
+                        </p>
+                        <div class="checkbox-grid">
+                            <label class="option-label"
+                                ><input
+                                    type="checkbox"
+                                    name="interests[]"
+                                    value="AI & Machine Learning"
+                                />
+                                AI &amp; Machine Learning</label
+                            >
+                            <label class="option-label"
+                                ><input
+                                    type="checkbox"
+                                    name="interests[]"
+                                    value="Web Development"
+                                />
+                                Web Development</label
+                            >
+                            <label class="option-label"
+                                ><input
+                                    type="checkbox"
+                                    name="interests[]"
+                                    value="Mobile Apps"
+                                />
+                                Mobile Apps</label
+                            >
+                            <label class="option-label"
+                                ><input
+                                    type="checkbox"
+                                    name="interests[]"
+                                    value="Cybersecurity"
+                                />
+                                Cybersecurity</label
+                            >
+                            <label class="option-label"
+                                ><input
+                                    type="checkbox"
+                                    name="interests[]"
+                                    value="IoT & Embedded"
+                                />
+                                IoT &amp; Embedded</label
+                            >
+                            <label class="option-label"
+                                ><input
+                                    type="checkbox"
+                                    name="interests[]"
+                                    value="Cloud Computing"
+                                />
+                                Cloud Computing</label
+                            >
+                            <label class="option-label"
+                                ><input
+                                    type="checkbox"
+                                    name="interests[]"
+                                    value="UI/UX Design"
+                                />
+                                UI/UX Design</label
+                            >
+                            <label class="option-label"
+                                ><input
+                                    type="checkbox"
+                                    name="interests[]"
+                                    value="Open Source"
+                                />
+                                Open Source</label
+                            >
+                        </div>
+                        <div id="interests-error-anchor"></div>
+                    </div>
+
+                    <input
+                        type="hidden"
+                        id="submission_id"
+                        name="submission_id"
+                    />
+                </fieldset>
+
+                
+                <fieldset class="form-section" id="section-profile">
+                    <legend>04. Profile</legend>
+
+                    <div class="input-group">
+                        <label for="profile_photo">Profile Photo</label>
+                        <div id="photo-preview-wrap">
+                            <img
+                                id="photo-preview"
+                                src=""
+                                alt="Profile preview"
+                            />
+                            <p id="photo-placeholder">no photo selected</p>
+                        </div>
+                        <input
+                            type="file"
+                            id="profile_photo"
+                            name="profile_photo"
+                            accept="image/*"
+                        />
+                    </div>
+
+                    <div class="input-group">
+                        <label for="short_bio">Short Bio</label>
+                        <textarea
+                            id="short_bio"
+                            name="short_bio"
+                            rows="4"
+                            placeholder="Tell us a little about yourself..."
+                        ></textarea>
+                        <div class="char-counter" id="bio-counter">
+                            0 / 200 characters
+                        </div>
+                    </div>
+                </fieldset>
+
+                
+                <fieldset class="form-section" id="section-selfid">
+                    <legend>05. Self-Identification</legend>
+                    <p class="section-note">
+                        Voluntary disclosure. This will not influence your
+                        application.
+                    </p>
+
+                    <div class="grid-2col identity-grid">
+                        <div class="input-group">
+                            <p class="group-label">Veteran Status</p>
+                            <div class="radio-group-col">
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="veteran"
+                                        value="I am a veteran"
+                                    />
+                                    I am a veteran</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="veteran"
+                                        value="Special disabled veteran"
+                                    />
+                                    Special disabled veteran</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="veteran"
+                                        value="Recently separated veteran"
+                                    />
+                                    Recently separated veteran</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="veteran"
+                                        value="Other protected veteran"
+                                    />
+                                    Other protected veteran</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="veteran"
+                                        value="I am not a veteran"
+                                    />
+                                    I am not a veteran</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="veteran"
+                                        value="Prefer not to answer"
+                                    />
+                                    Prefer not to answer</label
+                                >
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <p class="group-label">Gender</p>
+                            <div class="radio-group-col">
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="gender"
+                                        value="Female"
+                                    />
+                                    Female</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="gender"
+                                        value="Male"
+                                    />
+                                    Male</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="gender"
+                                        value="Transgender Female"
+                                    />
+                                    Transgender Female</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="gender"
+                                        value="Transgender Male"
+                                    />
+                                    Transgender Male</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="gender"
+                                        value="Prefer not to answer"
+                                    />
+                                    Prefer not to answer</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="gender"
+                                        value="Not listed"
+                                    />
+                                    Not listed</label
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-2col identity-grid">
+                        <div class="input-group">
+                            <p class="group-label">Disabilities</p>
+                            <div class="radio-group-col">
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="disability"
+                                        value="No disability"
+                                    />
+                                    No disability</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="disability"
+                                        value="Two or more impairments"
+                                    />
+                                    Two or more impairments</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="disability"
+                                        value="Specific learning difficulty"
+                                    />
+                                    Specific learning difficulty</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="disability"
+                                        value="Social / communication"
+                                    />
+                                    Social / communication</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="disability"
+                                        value="Long-standing illness"
+                                    />
+                                    Long-standing illness</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="disability"
+                                        value="Physical impairment"
+                                    />
+                                    Physical impairment</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="disability"
+                                        value="Deaf / hearing impairment"
+                                    />
+                                    Deaf / hearing impairment</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="disability"
+                                        value="Blind / visual impairment"
+                                    />
+                                    Blind / visual impairment</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="disability"
+                                        value="Prefer not to answer"
+                                    />
+                                    Prefer not to answer</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="disability"
+                                        value="Other"
+                                    />
+                                    Other</label
+                                >
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <p class="group-label">Race</p>
+                            <div class="radio-group-col">
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="race"
+                                        value="American Native / Alaska Native"
+                                    />
+                                    American Native / Alaska Native</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="race"
+                                        value="Asian"
+                                    />
+                                    Asian</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="race"
+                                        value="Black or African American"
+                                    />
+                                    Black or African American</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="race"
+                                        value="Native Hawaiian / Pacific Islander"
+                                    />
+                                    Native Hawaiian / Pacific Islander</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="race"
+                                        value="White"
+                                    />
+                                    White</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="race"
+                                        value="Two or more races"
+                                    />
+                                    Two or more races</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="race"
+                                        value="Decline to specify"
+                                    />
+                                    Decline to specify</label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="race"
+                                        value="Other"
+                                    />
+                                    Other</label
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                
+                <fieldset class="form-section" id="section-notes">
+                    <legend>06. Additional Notes</legend>
+                    <div class="input-group">
+                        <label for="additional_notes">Additional Notes</label>
+                        <textarea
+                            id="additional_notes"
+                            name="additional_notes"
+                            rows="4"
+                            placeholder="Anything else you'd like us to know?"
+                        ></textarea>
+                        <div class="char-counter" id="notes-counter">
+                            0 / 300 characters
+                        </div>
+                    </div>
+                </fieldset>
+
+                
+                <footer class="bottom-actions">
+                    <input
+                        type="hidden"
+                        id="submission_id_bottom"
+                        name="submission_id_bottom"
+                    />
+                    <div class="btn-group">
+                        <input
+                            type="button"
+                            value="Reset Form"
+                            class="btn-reset"
+                            id="reset-btn"
+                        />
+                        <button type="submit" class="btn-submit">
+                            Create Account &rarr;
+                        </button>
+                    </div>
+                </footer>
+            </form>
+        </main>
+
+        
+        <script src="cordova.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
