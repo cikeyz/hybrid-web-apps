@@ -1,0 +1,31 @@
+{
+  "name": "com.ckortiz.puphymn",
+  "displayName": "PUP Hymn",
+  "version": "1.0.0",
+  "description": "PUP Hymn karaoke player packaged with Apache Cordova.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Carl Kristian Ortiz",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-android": "^15.0.0",
+    "cordova-codeplay-music-controls": "^0.0.8",
+    "cordova-plugin-android-permissions": "^1.1.5",
+    "cordova-plugin-media": "^7.0.0"
+  },
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-android-permissions": {},
+      "cordova-plugin-media": {},
+      "cordova-codeplay-music-controls": {}
+    }
+  }
+}

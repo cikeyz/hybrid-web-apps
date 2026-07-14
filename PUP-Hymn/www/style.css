@@ -1,0 +1,619 @@
+/* --- LOCAL FONT: Montserrat ---
+   I load the font file from assets/ here so it still works even if
+   the font is not installed on the computer. Path is lowercase so it
+   also resolves on Android's case-sensitive WebView. font-display: swap
+   lets fallback text show first, then the real font replaces it. */
+@font-face {
+    font-family: "Montserrat";
+    src: url("assets/Montserrat Regular/Montserrat Regular.otf")
+        format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- DESIGN TOKENS ---
+   These CSS variables keep the colors, sizing, and fonts consistent.
+   I placed them in :root so everything can reuse them easily.
+   --maroon is the main brand color and also ties into the karaoke highlight style. */
+:root {
+    --topbar-h: 64px;
+    --controls-h: 72px;
+    --font-header: "Montserrat", serif;
+    --font-display: "Montserrat", system-ui, sans-serif;
+    /* Main PUP brand color */
+    --maroon: #800000;
+    --maroon-light: #a00000;
+    /* These highlight colors are a bit brighter so the sung/active words stand out more */
+    --word-active: #b91c1c;
+    --word-sung: #d4a0a0;
+    /* Light theme colors */
+    --bg-primary: #fafafa;
+    --bg-surface: #f3f3f3;
+    --bg-elevated: #d9d9d9;
+    --bg-card: #e8e8e8;
+    --text-primary: #111111;
+    --text-secondary: #3d3d3d;
+    --text-dim: #777777;
+    --divider: rgba(0, 0, 0, 0.12);
+    --controls-bg: #e8e8e8;
+    --scrollbar-track: #d0d0d0;
+}
+
+/* --- GLOBAL RESET ---
+   This clears the default browser spacing and uses border-box
+   so sizing feels more predictable while styling. */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Keep the page locked to the viewport because the lyrics panel
+   handles its own scrolling instead of the whole body */
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: var(--font-display);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------------------
+   TOP HEADER BAR
+   This is the maroon header inspired by the PUP site.
+   --------------------------- */
+.topbar {
+    height: var(--topbar-h);
+    background: var(--maroon);
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* Fixed logo size so it stays neat, plus a small shadow for depth */
+.topbar-logo {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+}
+
+.topbar-text {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Uppercase heading to get closer to the PUP website look */
+.topbar-title {
+    font-family: var(--font-header);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+/* Smaller tagline below the main school name */
+.topbar-sub {
+    font-family: var(--font-header);
+    font-size: 0.62rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 1px;
+}
+
+/* ---------------------------
+   SPLIT-SCREEN PLAYER LAYOUT
+   Grid makes it easy to keep the sidebar fixed and let the lyrics area take the rest.
+   The height also accounts for the header and bottom controls.
+   --------------------------- */
+.player {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    height: calc(100% - var(--topbar-h) - var(--controls-h));
+}
+
+/* ---------------------------
+   LEFT SIDEBAR
+   This stacks the album art, song info, and details card in one column.
+   justify-content: center keeps the group visually centered.
+   --------------------------- */
+.sidebar {
+    background: var(--bg-surface);
+    border-right: 1px solid var(--divider);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 20px;
+    text-align: center;
+    overflow-y: auto;
+}
+
+/* Square image holder with rounded corners and a stronger shadow */
+.album-art {
+    width: 240px;
+    height: 240px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.45),
+        0 2px 8px rgba(128, 0, 0, 0.2);
+    margin-bottom: 16px;
+    margin-top: 30px;
+    flex-shrink: 0;
+}
+
+/* cover keeps the image filling the box without squishing it */
+.album-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Main song title styling */
+.song-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 2px;
+}
+
+/* Secondary text for the subtitle line */
+.song-artist {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+/* --- Hymn Info Card ---
+   Simple card wrapper for the extra hymn details */
+.hymn-info {
+    width: 100%;
+    background: var(--bg-card);
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-align: left;
+}
+
+/* Card heading stands out with maroon text and a divider */
+.info-heading {
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--maroon);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--divider);
+}
+
+/* Each info row stacks the label and its values */
+.info-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 6px 0;
+}
+
+/* Adds a divider only when another row comes after the previous one */
+.info-row + .info-row {
+    border-top: 1px solid var(--divider);
+}
+
+/* Small label style so the actual values stay more noticeable */
+.info-label {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+    font-weight: 500;
+}
+
+/* Main value text for each info item */
+.info-value {
+    font-size: 1rem;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+/* ---------------------------
+   RIGHT LYRICS PANEL
+   This is the scrollable area where the JS drops in the lyric lines.
+   --------------------------- */
+.lyrics-panel {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 24px 48px;
+    position: relative;
+}
+
+/* Custom scrollbar styling for browsers that support the WebKit version */
+.lyrics-panel::-webkit-scrollbar {
+    width: 10px;
+}
+
+.lyrics-panel::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+
+.lyrics-panel::-webkit-scrollbar-thumb {
+    background: var(--maroon);
+    border-radius: 5px;
+    border: 2px solid var(--scrollbar-track);
+}
+
+.lyrics-panel::-webkit-scrollbar-thumb:hover {
+    background: var(--maroon-light);
+}
+
+/* Placeholder text before the actual lyrics are shown */
+.lyrics-placeholder {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 1rem;
+    padding-top: 40%;
+    font-style: italic;
+}
+
+/* Top and bottom spacers give the first and last lines room
+   to land near the middle during auto-scroll. The top spacer is
+   intentionally shorter than the bottom: at startup, before the user
+   presses play, the lyrics panel shows the top of the list, and a tall
+   top spacer produced a large gap of dead space above line 0. The
+   bottom spacer stays tall so the last line can still center during
+   playback. */
+.lyrics-spacer {
+    height: 12vh;
+}
+
+.lyrics-spacer.spacer-bottom {
+    height: 25vh;
+}
+
+/* --- LYRIC LINE ---
+   Every lyric line starts dimmed by default.
+   The active one becomes fully visible and scales up a bit.
+   transform-origin keeps the zoom feeling anchored from the left side. */
+.lyric-line {
+    text-align: left;
+    padding: 10px 0;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    opacity: 0.3;
+    transition:
+        opacity 0.2s ease-out,
+        transform 0.2s ease-out;
+    line-height: 1.4;
+    cursor: pointer;
+    user-select: none;
+    transform-origin: left center;
+}
+
+/* Active line gets full opacity and the zoom effect */
+.lyric-line.active {
+    opacity: 1;
+    transform: scale(1.18);
+}
+
+/* Past lines stay visible so the sung word colors can still be seen */
+.lyric-line.past {
+    opacity: 1;
+}
+
+/* Instrumental lines look lighter and more separate from the regular lyrics */
+.lyric-line.instrumental {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text-dim);
+    letter-spacing: -0.02em;
+    opacity: 0.3;
+}
+
+/* .instrumental.active already gets the active styles from .lyric-line.active,
+   so I only need to tweak how the past state looks here */
+.lyric-line.instrumental.past {
+    opacity: 0.15;
+}
+
+/* --- WORD SPANS ---
+   Each word is wrapped in its own span so it can be highlighted
+   and clicked for seeking without affecting the whole line. */
+.word {
+    display: inline-block;
+    padding: 2px 4px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Hover underline helps show that the words are clickable */
+.word:hover {
+    text-decoration-line: underline;
+    text-decoration-color: var(--text-dim);
+    text-underline-offset: 4px;
+}
+
+/* Current word being sung */
+.word.active {
+    color: var(--word-active);
+}
+
+/* Words that already passed get a softer color */
+.word.sung {
+    color: var(--word-sung);
+}
+
+/* ---------------------------
+   BOTTOM CONTROLS BAR
+   Flex layout for the playback buttons and progress section.
+   --------------------------- */
+.controls-bar {
+    height: var(--controls-h);
+    background: var(--controls-bg);
+    border-top: 1px solid var(--divider);
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    gap: 14px;
+}
+
+/* Side control buttons keep a lighter ghost-button look */
+.control-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 2rem;
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        transform 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.control-btn:hover {
+    color: var(--text-primary);
+}
+
+.control-btn:active {
+    transform: scale(0.9);
+}
+
+/* Main play button is circular so it stands out more than the side controls */
+.play-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.15s ease-out;
+}
+
+.play-btn:hover {
+    transform: scale(1.06);
+}
+
+.play-btn:active {
+    transform: scale(0.95);
+}
+
+.play-btn i {
+    font-size: 16px;
+}
+
+/* Small nudge so the play triangle looks centered by eye */
+.icon-play {
+    margin-left: 2px;
+}
+
+/* This section stretches to use the remaining horizontal space */
+.progress-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Tabular numbers stop the time labels from jumping around in width */
+.time-label {
+    font-size: 1rem;
+    color: var(--text-dim);
+    font-variant-numeric: tabular-nums;
+    min-width: 30px;
+}
+
+#timeTotal {
+    text-align: right;
+}
+
+/* Seek bar track */
+.progress-container {
+    flex: 1;
+    height: 8px;
+    background: var(--bg-elevated);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Filled part of the seek bar */
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--maroon), var(--maroon-light));
+    border-radius: 3px;
+    width: 0%;
+    pointer-events: none;
+}
+
+/* ---------------------------
+   RESPONSIVE - TABLET AND PHONE
+   The desktop layout is a fixed 380px sidebar next to the lyrics panel.
+   On screens narrower than that sidebar (typical phones are 360-411px),
+   keeping the side-by-side grid is impossible, so we stack instead:
+   album art + hymn info on top, lyrics take the remaining height below.
+   Everything at ≥769px is untouched and stays pixel-identical.
+   --------------------------- */
+@media (max-width: 768px) {
+    /* --- TOPBAR ---
+       Shrink the logo and shorten the school title font so it does not
+       wrap awkwardly on a 360px screen. */
+    .topbar {
+        padding: 0 14px;
+    }
+
+    .topbar-logo {
+        width: 32px;
+        height: 32px;
+    }
+
+    .topbar-title {
+        font-size: 0.82rem;
+    }
+
+    .topbar-sub {
+        font-size: 0.55rem;
+    }
+
+    /* --- PLAYER GRID ---
+       The core change: collapse the two-column grid into one column and
+       let it fill the whole height. Sidebar becomes a compact header
+       band, lyrics panel takes the rest. */
+    .player {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        height: calc(100% - var(--topbar-h) - var(--controls-h));
+    }
+
+    /* --- SIDEBAR (now a top band) ---
+       Switch from centered vertical stack to a horizontal row so the
+       album art, title, and info read like a now-playing bar instead
+       of eating vertical space. */
+    .sidebar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 14px;
+        padding: 12px 14px;
+        text-align: left;
+        overflow: hidden;
+        border-right: none;
+        border-bottom: 1px solid var(--divider);
+    }
+
+    /* Smaller, square album thumbnail fits beside the text. */
+    .album-art {
+        width: 72px;
+        height: 72px;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    /* Song title + artist sit next to the thumbnail. */
+    .song-title {
+        font-size: 1.05rem;
+        margin-bottom: 1px;
+    }
+
+    .song-artist {
+        font-size: 0.75rem;
+        margin-bottom: 0;
+    }
+
+    /* The full hymn-info card is too tall for a compact band, so we
+       hide it on phones. The composers/ensemble are secondary detail;
+       the now-playing row keeps the essential identity visible. */
+    .hymn-info {
+        display: none;
+    }
+
+    /* --- LYRICS PANEL ---
+       Takes the remaining viewport height and scrolls internally,
+       same as desktop. Slightly tighter padding for narrow widths. */
+    .lyrics-panel {
+        padding: 16px 20px;
+    }
+
+    .lyric-line {
+        font-size: 1.4rem;
+    }
+
+    .lyric-line.active {
+        transform: scale(1.1);
+    }
+
+    /* --- CONTROLS BAR ---
+       Tighten gaps so the play button and seek bar fit comfortably. */
+    .controls-bar {
+        padding: 0 14px;
+        gap: 8px;
+    }
+
+    .control-btn {
+        font-size: 1.5rem;
+    }
+
+    .play-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .time-label {
+        font-size: 0.8rem;
+        min-width: 26px;
+    }
+}
+
+/* ---------------------------
+   SMALL PHONE (≤380px)
+       A final pass for very narrow phones (older 360px Androids) so
+       nothing clips. Only spacing nudges here.
+   --------------------------- */
+@media (max-width: 380px) {
+    .sidebar {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .album-art {
+        width: 60px;
+        height: 60px;
+    }
+
+    .song-title {
+        font-size: 0.95rem;
+    }
+
+    .lyric-line {
+        font-size: 1.2rem;
+    }
+
+    .controls-bar {
+        gap: 6px;
+        padding: 0 10px;
+    }
+}

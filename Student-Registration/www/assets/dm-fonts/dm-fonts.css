@@ -1,0 +1,90 @@
+/* --------------------------------------------------------
+   DM Sans + DM Mono - vendored locally for offline APK use.
+   Source: @fontsource/dm-sans and @fontsource/dm-mono
+   (SIL Open Font License 1.1).
+   Only the weights and styles the page actually uses are included,
+   in the latin subset, woff2 only. This replaces the Google Fonts
+   <link> so the notebook typography is identical with no network.
+   -------------------------------------------------------- */
+
+/* --- DM Sans (body font) --- */
+@font-face {
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("dm-sans-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "DM Sans";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("dm-sans-latin-400-italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("dm-sans-latin-500-normal.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "DM Sans";
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url("dm-sans-latin-500-italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("dm-sans-latin-600-normal.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "DM Sans";
+    font-style: italic;
+    font-weight: 600;
+    font-display: swap;
+    src: url("dm-sans-latin-600-italic.woff2") format("woff2");
+}
+
+/* --- DM Mono (labels, mono accents) --- */
+@font-face {
+    font-family: "DM Mono";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("dm-mono-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("dm-mono-latin-400-italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("dm-mono-latin-500-normal.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "DM Mono";
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url("dm-mono-latin-500-italic.woff2") format("woff2");
+}

@@ -1,0 +1,1048 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- ----- HEAD META -----
+    Just the usual page setup stuff here: charset, viewport,
+    favicon, page info, and the stylesheet link. -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Personal website of Carl Kristian Ortiz, BS Computer Engineering student at PUP Manila, DOST scholar, and poet-engineer."
+        />
+        <meta name="author" content="Carl Kristian R. Ortiz" />
+        <title>ck.dev-verse</title>
+        <link
+            rel="icon"
+            href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23030303'/><text y='22' x='2' font-size='16' font-family='monospace' fill='%23ffcc00'>&gt;_</text></svg>"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <!-- ----- NAVIGATION -----
+    This is the fixed top nav for jumping around the page.
+    JS handles the smooth scroll, the active link, and the mobile
+    hamburger toggle (the ul collapses into a dropdown below 768px). -->
+        <nav id="main-nav">
+            <span class="nav-logo">&gt;_ ck.dev-verse</span>
+            <!-- Hamburger toggle button; only visible on mobile widths. -->
+            <button id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+            <!-- I added these once the page had enough sections to hop through. -->
+            <ul id="nav-list">
+                <li><a href="#about">&gt; about.sh</a></li>
+                <li><a href="#education">&gt; education.log</a></li>
+                <li><a href="#skills">&gt; skills.db</a></li>
+                <li><a href="#work">&gt; work.sh</a></li>
+                <li><a href="#projects">&gt; projects.sh</a></li>
+                <li><a href="#research">&gt; research.sh</a></li>
+                <li><a href="#contact">&gt; contact.sh</a></li>
+            </ul>
+        </nav>
+
+        <!-- ----- 1. BOOT SCREEN / HERO -----
+    This is the fake terminal intro.
+    The rest of the page stays hidden until the boot command finishes. -->
+        <header id="hero">
+            <div class="terminal-window hero-terminal">
+                <div class="terminal-bar">
+                    <div class="terminal-dots"><span></span><span></span></div>
+                    <span class="terminal-title">ck.ortiz@info</span>
+                </div>
+                <div class="terminal-body">
+                    <pre id="boot-log"></pre>
+                    <!-- I kept the command line here so boot only starts after the right input. -->
+                    <div id="command-line">
+                        <span class="cmd-prefix"
+                            >guest@ck.dev-verse:~$&nbsp;</span
+                        >
+                        <input
+                            type="text"
+                            id="command-input"
+                            autofocus
+                            autocomplete="off"
+                            spellcheck="false"
+                        />
+                    </div>
+                    <div id="hero-content" class="hidden">
+                        <h1>ORTIZ, CARL KRISTIAN R.</h1>
+                        <p class="tagline">
+                            BS Computer Engineering &middot; PUP Manila &middot;
+                            Poet-Engineer
+                        </p>
+                        <span class="prompt"
+                            >&gt;_<span class="cursor">|</span></span
+                        >
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- ----- 2. ABOUT -----
+      Photo on one side, intro on the other.
+      The logo row stays separate so it can sit cleanly underneath. -->
+            <section id="about">
+                <article class="terminal-window">
+                    <header class="terminal-bar">
+                        <div class="terminal-dots">
+                            <span></span><span></span>
+                        </div>
+                        <span class="terminal-title">&gt; about.sh</span>
+                    </header>
+                    <div class="terminal-body">
+                        <div class="about-grid">
+                            <figure class="profile-figure">
+                                <img
+                                    src="assets/profile.jpg"
+                                    alt="Carl Kristian Ortiz headshot photo"
+                                />
+                                <figcaption>
+                                    <strong>Carl Kristian R. Ortiz</strong
+                                    ><br />
+                                    <em>BS Computer Engineering</em><br />
+                                    <em>3rd Year</em>
+                                </figcaption>
+                            </figure>
+
+                            <article class="about-text">
+                                <p>
+                                    Kamusta, I&rsquo;m CK. Computer Engineering
+                                    student at PUP Manila, studying on a
+                                    DOST-SEI scholarship.<br />
+                                    I work across the stack: PCB layout,
+                                    routing, firmware, full-stack. What I
+                                    actually like is the seam between hardware
+                                    and software, where both sides have to give
+                                    a little.
+                                </p>
+                                <p>
+                                    I also write. Not as a side hobby, but as
+                                    the other way I process things. I think good
+                                    engineering is already a form of care.
+                                    You&rsquo;re always building for someone,
+                                    even if you don&rsquo;t say it out loud.
+                                </p>
+                            </article>
+                        </div>
+
+                        <ul class="affiliation-logos">
+                            <li>
+                                <a
+                                    href="https://www.pup.edu.ph/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img
+                                        src="assets/pup-logo.png"
+                                        alt="Polytechnic University of the Philippines logo"
+                                    />
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.sei.dost.gov.ph/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img
+                                        src="assets/dost-logo.png"
+                                        alt="DOST-SEI scholarship logo"
+                                    />
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.dewise.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img
+                                        src="assets/dewise-logo.svg"
+                                        alt="Dewise Solutions Philippines logo"
+                                    />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+
+            <!-- ----- 3. EDUCATION -----
+      This keeps the school history in a table,
+      then the GPA list right under it. -->
+            <section id="education">
+                <article class="terminal-window">
+                    <header class="terminal-bar">
+                        <div class="terminal-dots">
+                            <span></span><span></span>
+                        </div>
+                        <span class="terminal-title">$ education.log</span>
+                    </header>
+                    <div class="terminal-body">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Level</th>
+                                    <th>School</th>
+                                    <th>Program</th>
+                                    <th>Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Elementary</td>
+                                    <td>Santo Tomas Catholic School</td>
+                                    <td>-</td>
+                                    <td><small>S.Y. 2016&ndash;2017</small></td>
+                                </tr>
+                                <tr>
+                                    <td>Junior HS</td>
+                                    <td>Mangaldan National High School</td>
+                                    <td>STE Program</td>
+                                    <td><small>S.Y. 2020&ndash;2021</small></td>
+                                </tr>
+                                <tr>
+                                    <td>Senior HS</td>
+                                    <td>Mangaldan National High School</td>
+                                    <td>STEM Strand</td>
+                                    <td><small>S.Y. 2022&ndash;2023</small></td>
+                                </tr>
+                                <tr>
+                                    <td>College</td>
+                                    <td>
+                                        Polytechnic University of the
+                                        Philippines
+                                    </td>
+                                    <td>BS Computer Engineering</td>
+                                    <td>
+                                        <small>S.Y. 2023&ndash;Present</small>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3 class="section-sub">&gt; gpa_history.log</h3>
+                        <ol type="I">
+                            <li>
+                                1st Year
+                                <ul>
+                                    <li>
+                                        1st Semester: <strong>1.66</strong> GPA
+                                        <small>(S.Y. 2023&ndash;2024)</small>
+                                    </li>
+                                    <li>
+                                        2nd Semester: <strong>1.93</strong> GPA
+                                        <small>(S.Y. 2023&ndash;2024)</small>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                2nd Year
+                                <ul>
+                                    <li>
+                                        1st Semester: <strong>1.82</strong> GPA
+                                        <small>(S.Y. 2024&ndash;2025)</small>
+                                    </li>
+                                    <li>
+                                        2nd Semester: <strong>1.83</strong> GPA
+                                        <small>(S.Y. 2024&ndash;2025)</small>
+                                    </li>
+                                    <li>
+                                        Summer Term: <strong>1.00</strong> GPA
+                                        <small>(S.Y. 2024&ndash;2025)</small>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                3rd Year
+                                <ul>
+                                    <li>
+                                        1st Semester: <strong>1.45</strong> GPA
+                                        <small>(S.Y. 2025&ndash;2026)</small>
+                                    </li>
+                                    <li>
+                                        2nd Semester:
+                                        <span
+                                            class="gpa-loading"
+                                            aria-label="GPA not yet available"
+                                            >loading<span
+                                                class="gpa-loading-ellipsis"
+                                                aria-hidden="true"
+                                                >....</span
+                                            ></span
+                                        >
+                                        <small>(S.Y. 2025&ndash;2026)</small>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </article>
+            </section>
+
+            <!-- ----- 4. SKILLS -----
+      Left side is the technical stack.
+      Right side is the softer skills written as a definition list. -->
+            <section id="skills">
+                <article class="terminal-window">
+                    <header class="terminal-bar">
+                        <div class="terminal-dots">
+                            <span></span><span></span>
+                        </div>
+                        <span class="terminal-title">&gt; skills.db</span>
+                    </header>
+                    <div class="terminal-body">
+                        <div class="skills-grid">
+                            <article>
+                                <h3 class="section-sub">
+                                    &gt; technical_skills[]
+                                </h3>
+                                <!-- These top rows are grouped tags, not bullet items. -->
+                                <div
+                                    class="skills-tag-lanes"
+                                    aria-label="Languages and tools (grouped)"
+                                >
+                                    <p class="skills-tag-line">
+                                        <mark>Python</mark> &middot;
+                                        <mark>JavaScript</mark> &middot;
+                                        <mark>HTML/CSS</mark>
+                                    </p>
+                                    <p class="skills-tag-line">
+                                        <mark>C++</mark> &middot;
+                                        <mark>VHDL/Verilog</mark> &middot;
+                                        <mark>SQL</mark>
+                                    </p>
+                                    <p class="skills-tag-line">
+                                        <mark>LTspice</mark> &middot;
+                                        <mark>Arduino IDE</mark> &middot;
+                                        <mark>TinkerCAD</mark>
+                                    </p>
+                                </div>
+                                <ul class="technical-skills-list">
+                                    <li class="skills-item">
+                                        <span class="skills-item-label"
+                                            >Full-Stack Architecture</span
+                                        >
+                                        <span class="skills-item-sub"
+                                            >React Native, Next.js, Flask</span
+                                        >
+                                    </li>
+                                    <li class="skills-item">
+                                        <span class="skills-item-label"
+                                            >Hardware Engineering &amp; PCB
+                                            Design</span
+                                        >
+                                        <span class="skills-item-sub"
+                                            >KiCAD, LTspice, Arduino IDE,
+                                            TinkerCAD</span
+                                        >
+                                    </li>
+                                    <li class="skills-item">
+                                        <span class="skills-item-label"
+                                            >AI-Assisted Development</span
+                                        >
+                                        <span class="skills-item-sub"
+                                            >Cursor, Codex, Claude Code</span
+                                        >
+                                    </li>
+                                    <li class="skills-item">
+                                        <span class="skills-item-label"
+                                            >Technical Writing</span
+                                        >
+                                        <span class="skills-item-sub"
+                                            >Diataxis Framework</span
+                                        >
+                                    </li>
+                                    <li class="skills-item">
+                                        <span class="skills-item-label"
+                                            >Frontend &amp; UI/UX Design</span
+                                        >
+                                        <span class="skills-item-sub"
+                                            >WCAG 2.1 AA, Figma, Framer,
+                                            Paper</span
+                                        >
+                                    </li>
+                                    <li class="skills-item">
+                                        <span class="skills-item-label"
+                                            >Network Analysis</span
+                                        >
+                                        <span class="skills-item-sub"
+                                            >Cisco Packet Tracer,
+                                            Wireshark</span
+                                        >
+                                    </li>
+                                </ul>
+                            </article>
+
+                            <article>
+                                <h3 class="section-sub">&gt; soft_skills{}</h3>
+                                <dl>
+                                    <dt>Resilience &amp; Adaptability</dt>
+                                    <dd>
+                                        Perseveres through academic and personal
+                                        challenges, adapting strategies to
+                                        maintain forward momentum.
+                                    </dd>
+                                    <dt>Emotional Intelligence</dt>
+                                    <dd>
+                                        Deep understanding of human dynamics,
+                                        motivations, and unspoken needs in
+                                        collaborative settings.
+                                    </dd>
+                                    <dt>Critical Thinking</dt>
+                                    <dd>
+                                        Deconstructs multifaceted problems from
+                                        logical, ethical, and human-centric
+                                        viewpoints.
+                                    </dd>
+                                    <dt>Communication</dt>
+                                    <dd>
+                                        Expresses complex thoughts with
+                                        precision and poetic clarity.
+                                    </dd>
+                                    <dt>Project Leadership</dt>
+                                    <dd>
+                                        Takes proactive ownership of group
+                                        projects, ensuring team success and
+                                        meeting rigorous deadlines.
+                                    </dd>
+                                </dl>
+                            </article>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- I added this once the page grew past school info and skills. -->
+            <section id="work">
+                <article class="terminal-window">
+                    <header class="terminal-bar">
+                        <div class="terminal-dots">
+                            <span></span><span></span>
+                        </div>
+                        <span class="terminal-title">&gt; work.sh</span>
+                    </header>
+                    <div class="terminal-body">
+                        <article class="job-card job-card--split current-role">
+                            <div
+                                class="job-dates"
+                                aria-label="Employment period"
+                            >
+                                <span class="job-date-end">Present</span>
+                                <span class="job-date-start">Oct 2025</span>
+                            </div>
+                            <div class="job-detail">
+                                <div class="job-detail-header">
+                                    <h3 class="job-title">
+                                        Junior Software Developer
+                                    </h3>
+                                    <span class="job-current-chip"
+                                        >● CURRENT</span
+                                    >
+                                </div>
+                                <p class="job-company">
+                                    Dewise Solutions Philippines Inc.
+                                </p>
+                                <ul class="job-duties">
+                                    <li>
+                                        End-to-end documentation strategy for
+                                        Alon platform
+                                    </li>
+                                    <li>
+                                        B2B content marketing on EU Pay
+                                        Transparency Directive ~
+                                        <ins>&gt;25% LinkedIn engagement</ins>
+                                    </li>
+                                    <li>
+                                        Production-ready social media pubmats
+                                        using pixel-accurate design tokens
+                                    </li>
+                                    <li>
+                                        AI-assisted automations: LLM agents for
+                                        content automation and brand consistency
+                                    </li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="job-card job-card--split">
+                            <div
+                                class="job-dates"
+                                aria-label="Employment period"
+                            >
+                                <span class="job-date-end">Sep 2025</span>
+                                <span class="job-date-start">Jul 2025</span>
+                            </div>
+                            <div class="job-detail">
+                                <div class="job-detail-header">
+                                    <h3 class="job-title">
+                                        Product Architect &amp; Data Analyst
+                                        Intern
+                                    </h3>
+                                </div>
+                                <p class="job-company">
+                                    Dewise Solutions Philippines Inc.
+                                </p>
+                                <ul class="job-duties">
+                                    <li>
+                                        Architected core equity analytics
+                                        framework for the Alon platform
+                                    </li>
+                                    <li>
+                                        Designed 'Hybrid Threshold' and
+                                        'Dual-Modifier' models to mitigate
+                                        evaluation bias
+                                    </li>
+                                    <li>
+                                        <code class="py-ext">.py</code>
+                                        simulation engine to stress-test
+                                        framework algorithms against varied
+                                        datasets
+                                    </li>
+                                    <li>
+                                        High-fidelity UI mockups for a
+                                        manager-facing analytics dashboard
+                                    </li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                </article>
+            </section>
+
+            <!-- I grouped the projects into hardware, software, and mixed logic work here. -->
+            <section id="projects">
+                <article class="terminal-window">
+                    <header class="terminal-bar">
+                        <div class="terminal-dots">
+                            <span></span><span></span>
+                        </div>
+                        <span class="terminal-title">&gt; projects.sh</span>
+                    </header>
+                    <div class="terminal-body">
+                        <h3 class="project-category">
+                            // 01. Hardware Engineering
+                        </h3>
+
+                        <article class="project-card">
+                            <h4>AQuAbot: Aqua Quality Analyzing Robot</h4>
+                            <p class="tech-stack">
+                                Raspberry Pi &middot; Arduino MEGA &middot;
+                                Python &middot; C++ &middot; IoT &middot;
+                                Sensors
+                            </p>
+                            <ul>
+                                <li>
+                                    Autonomous floating robot for real-time
+                                    water quality analysis
+                                </li>
+                                <li>
+                                    Integrated 4 sensors: Dissolved Oxygen, pH,
+                                    Turbidity, Temperature
+                                </li>
+                                <li>
+                                    Wireless data transmission;
+                                    <strong>95&ndash;100% accuracy</strong> in
+                                    controlled trials
+                                </li>
+                                <li>
+                                    Award: 3rd Place, Best in Robotics Paper
+                                    Presentation
+                                </li>
+                            </ul>
+                        </article>
+
+                        <article class="project-card">
+                            <h4>
+                                Choco Drink Dispenser: Combinational Logic
+                                Vending Machine
+                            </h4>
+                            <p class="tech-stack">
+                                KiCAD &middot; PCB Design &middot; Boolean
+                                Algebra &middot; K-Maps &middot; 74LS148
+                                &middot; Arduino Nano &middot; Logisim &middot;
+                                TinkerCad
+                            </p>
+                            <ul>
+                                <li>
+                                    4-variant iterative build for CMPE 304;
+                                    final variant adds Arduino Nano + buzzer SFX
+                                </li>
+                                <li>
+                                    74LS148 priority encoder, hex inverters,
+                                    AND/OR gates; NAND-gate workaround for
+                                    TinkerCad
+                                </li>
+                                <li>
+                                    Two-board PCB in KiCAD; NPN drivers, MT3608
+                                    step-up; weatherproof 240&times;160mm ABS
+                                    enclosure
+                                </li>
+                                <li>
+                                    K-Map minimized Boolean expressions verified
+                                    across 8 test cases in Logisim and TinkerCad
+                                </li>
+                            </ul>
+                        </article>
+
+                        <article class="project-card">
+                            <h4>
+                                Variable Linear DC Power Supply (0&ndash;30V,
+                                2A)
+                            </h4>
+                            <p class="tech-stack">
+                                PCB Design &middot; FR-4 &middot; Analog
+                                Circuits &middot; KiCAD &middot; Technical
+                                Documentation
+                            </p>
+                            <ul>
+                                <li>
+                                    Lab-grade adjustable DC power supply from
+                                    220V AC
+                                </li>
+                                <li>
+                                    Custom FR-4 PCB, dual thermal management
+                                    (passive heatsink + 24V fan)
+                                </li>
+                                <li>
+                                    Validated: &lt;1% load regulation, &lt;0.5%
+                                    line regulation
+                                </li>
+                                <li>
+                                    Sole author of the 32-page technical report
+                                </li>
+                            </ul>
+                        </article>
+
+                        <article class="project-card">
+                            <h4>2-Bit ALU Sub-System</h4>
+                            <p class="tech-stack">
+                                VHDL &middot; Verilog &middot; Intel Quartus
+                                Prime &middot; Digital Logic
+                            </p>
+                            <ul>
+                                <li>
+                                    Functional ALU: add, subtract, multiply,
+                                    divide
+                                </li>
+                                <li>
+                                    Gate-level adder, subtractor, MUX
+                                    implementations
+                                </li>
+                                <li>
+                                    Waveform validation against truth tables in
+                                    Questa
+                                </li>
+                            </ul>
+                        </article>
+
+                        <article class="project-card">
+                            <h4>Automated LED Actuator Circuit</h4>
+                            <p class="tech-stack">
+                                KiCAD &middot; PCB Routing &middot; 3D Modeling
+                                &middot; Gerber Files
+                            </p>
+                            <ul>
+                                <li>
+                                    Schematic design, PCB layout routing, and 3D
+                                    modeling in KiCAD
+                                </li>
+                                <li>
+                                    Translated circuit modules into
+                                    manufacturing-ready Gerber files
+                                </li>
+                            </ul>
+                        </article>
+
+                        <h3 class="project-category">
+                            // 02. Software Engineering
+                        </h3>
+
+                        <article class="project-card">
+                            <h4>
+                                RailTime PH: Real-Time Train Station Tracker
+                            </h4>
+                            <p class="tech-stack">
+                                React Native &middot; Python &middot; SQLite
+                                &middot; WCAG 2.1 AA &middot; Accessibility
+                            </p>
+                            <ul>
+                                <li>
+                                    Offline-capable Metro Manila train tracking
+                                    app; cross-functional team lead
+                                </li>
+                                <li>
+                                    Accelerometer-based detection algorithms
+                                </li>
+                                <li>
+                                    WCAG 2.1 AA compliant: text-to-speech,
+                                    high-contrast UI for visually impaired users
+                                </li>
+                            </ul>
+                        </article>
+
+                        <article class="project-card">
+                            <h4>
+                                DSA Visualizer Suite: 7 Deployed Web
+                                Applications
+                            </h4>
+                            <p class="tech-stack">
+                                HTML &middot; CSS &middot; JavaScript &middot;
+                                Python &middot; Flask &middot; REST API &middot;
+                                Vercel
+                            </p>
+                            <ul>
+                                <li>
+                                    Structures: Arrays (Tic-Tac-Toe + Minimax
+                                    AI), Stacks, Queues, BST, Binary Trees
+                                </li>
+                                <li>
+                                    Algorithms: 7 sorting algorithms with speed
+                                    controls, Tower of Hanoi (BFS auto-solver)
+                                </li>
+                                <li>
+                                    BST app: Python/Flask backend + RESTful API
+                                    + Cytoscape.js frontend
+                                </li>
+                            </ul>
+                        </article>
+
+                        <article class="project-card">
+                            <h4>CashClarity: Personal Finance Manager</h4>
+                            <p class="tech-stack">
+                                Python &middot; CustomTkinter &middot; SQLite
+                                &middot; Matplotlib &middot; ReportLab &middot;
+                                OOP
+                            </p>
+                            <ul>
+                                <li>
+                                    Desktop app: authentication, dashboard,
+                                    transaction notebook, budget planner
+                                </li>
+                                <li>
+                                    50/30/20 rule-based budget calculator with
+                                    dynamic pie charts and bar graphs
+                                </li>
+                                <li>
+                                    PDF export via ReportLab; modular OOP
+                                    architecture
+                                </li>
+                            </ul>
+                        </article>
+
+                        <article class="project-card">
+                            <h4>Movie House Management System</h4>
+                            <p class="tech-stack">
+                                Python &middot; Tkinter &middot; SQLite &middot;
+                                OOP &middot; UML
+                            </p>
+                            <ul>
+                                <li>
+                                    Full-stack desktop app: movie listings, room
+                                    bookings, GUI-driven
+                                </li>
+                                <li>
+                                    12+ distinct classes, UML diagrams, custom
+                                    Vigen&egrave;re cipher for security
+                                </li>
+                            </ul>
+                        </article>
+
+                        <h3 class="project-category">
+                            // 03. Cross-Disciplinary / Logic Systems
+                        </h3>
+
+                        <article class="project-card">
+                            <h4>
+                                Water Flow Monitoring System
+                                <small>(Consultant Role)</small>
+                            </h4>
+                            <p class="tech-stack">
+                                74LS148 &middot; LM3914 &middot; Combinational
+                                Logic &middot; Prototyping
+                            </p>
+                            <ul>
+                                <li>
+                                    Technical lead for a parallel team;
+                                    prototyped 80%+ of the circuit
+                                </li>
+                                <li>
+                                    Priority encoder-driven pump control based
+                                    on tank water levels
+                                </li>
+                            </ul>
+                        </article>
+
+                        <article class="project-card">
+                            <h4>Mode-Selectable 4-Bit Synchronous Counter</h4>
+                            <p class="tech-stack">
+                                D Flip-Flops &middot; 74LS74 &middot; Sequential
+                                Logic &middot; 7-Segment Display
+                            </p>
+                            <ul>
+                                <li>
+                                    State machine alternating between Even-Down
+                                    and Odd-Up counting
+                                </li>
+                                <li>Dual 7-segment display output</li>
+                            </ul>
+                        </article>
+                    </div>
+                </article>
+            </section>
+
+            <!-- I split the research entries into command-like labels so they match the terminal vibe. -->
+            <section id="research">
+                <article class="terminal-window">
+                    <header class="terminal-bar">
+                        <div class="terminal-dots">
+                            <span></span><span></span>
+                        </div>
+                        <span class="terminal-title">&gt; research.sh</span>
+                    </header>
+                    <div class="terminal-body">
+                        <dl class="research-list">
+                            <dt>&gt; cat fractured_monolith_2025.pub</dt>
+                            <dd>
+                                <strong
+                                    >The Fractured Monolith: Systematic Review
+                                    of Modern Operating System Design</strong
+                                ><br />
+                                <small
+                                    >2025 &middot; Ortiz et al. &middot;
+                                    PUP</small
+                                ><br />
+                                67-page literature review of 35+ papers
+                                (2020-2025). Covers heterogeneous computing,
+                                cloud-native OS, kernel security, AI-augmented
+                                kernels, Post-Quantum Cryptography.
+                            </dd>
+
+                            <dt>&gt; cat pkm_latency_2025.pub</dt>
+                            <dd>
+                                <strong
+                                    >Comparative Analysis of Latency in PKM
+                                    Architectures: Local-First vs.
+                                    Cloud-Based</strong
+                                ><br />
+                                <small>2025 &middot; Ortiz &middot; PUP</small
+                                ><br />
+                                Benchmarked Obsidian vs. Notion: 4.2x faster
+                                boot, 7.5x lower search latency for local-first
+                                architectures.
+                            </dd>
+
+                            <dt>&gt; cat bioplastic_2023.pub</dt>
+                            <dd>
+                                <strong
+                                    >Effectiveness of Canistel Seed and Potato
+                                    Peel Waste as a Starch-Based Bioplastic
+                                    Film</strong
+                                ><br />
+                                <small
+                                    >2023 &middot; Ortiz, Esperida, Eslava,
+                                    Mejia</small
+                                ><br />
+                                Novel agricultural-waste bioplastic with
+                                statistically validated mechanical properties.
+                            </dd>
+
+                            <dt>&gt; cat machoism_2022.pub</dt>
+                            <dd>
+                                <strong
+                                    >Machoism Dominance: Patriarchal Influence
+                                    of Fictophilia from Hypermasculine Wattpad
+                                    Characters</strong
+                                ><br />
+                                <small>2022 &middot; Ortiz et al.</small><br />
+                                Phenomenological study on digital media's
+                                influence on gender norms; 168-page thesis.<br />
+                                <mark
+                                    >Champion: Best Qualitative Research
+                                    Title</mark
+                                >
+                                &middot;
+                                <mark>Champion: Best Final Defense</mark>
+                            </dd>
+
+                            <dt>&gt; cat aquabot_2021.pub</dt>
+                            <dd>
+                                <strong
+                                    >AQuAbot: Aqua Quality Analyzing Robot as
+                                    Water Quality Analyzer and Sender</strong
+                                ><br />
+                                <small>2021 &middot; Ortiz, Laza, Cornel</small
+                                ><br />
+                                Autonomous IoT robot for real-time water quality
+                                monitoring in aquaculture.
+                            </dd>
+
+                            <dt>&gt; cat techlearning_2020.pub</dt>
+                            <dd>
+                                <strong
+                                    >The Effectiveness of Technology-Aided
+                                    Learning Among Grade 10 Learners</strong
+                                ><br />
+                                <small>2020 &middot; Ortiz</small><br />
+                                Quantitative study on tech-assisted instruction
+                                outcomes.
+                            </dd>
+                        </dl>
+                    </div>
+                </article>
+            </section>
+
+            <!-- ----- 7. LINKS / CONNECT -----
+      Internal jumps go first here,
+      then the outside links right after. -->
+            <section id="links">
+                <article class="terminal-window">
+                    <header class="terminal-bar">
+                        <div class="terminal-dots">
+                            <span></span><span></span>
+                        </div>
+                        <span class="terminal-title">&gt; links.cfg</span>
+                    </header>
+                    <div class="terminal-body">
+                        <h3 class="section-sub">&gt; internal_links[]</h3>
+                        <!-- I kept these shortcuts because they fit the terminal theme pretty well. -->
+                        <ul>
+                            <li><a href="#hero">&gt; cd /hero</a></li>
+                            <li><a href="#about">&gt; cd /about</a></li>
+                            <li><a href="#education">&gt; cd /education</a></li>
+                            <li><a href="#skills">&gt; cd /skills</a></li>
+                            <li><a href="#work">&gt; cd /work</a></li>
+                            <li><a href="#projects">&gt; cd /projects</a></li>
+                            <li><a href="#research">&gt; cd /research</a></li>
+                        </ul>
+
+                        <h3 class="section-sub">&gt; external_links[]</h3>
+                        <ul>
+                            <li>
+                                <a
+                                    href="mailto:carlkristianrortiz@iskolarngbayan.pup.edu.ph"
+                                    >&gt; mail --to school_email</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="https://github.com/cikeyz"
+                                    target="_blank"
+                                    rel="noopener"
+                                    >&gt; open github.com/cikeyz</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.linkedin.com/in/ck-ortiz/"
+                                    target="_blank"
+                                    rel="noopener"
+                                    >&gt; open linkedin.com/in/ck-ortiz</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+
+            <!-- ----- 8. CONTACT FORM -----
+      Same terminal-style form setup here.
+      JS still handles the fake submit message under it. -->
+            <section id="contact">
+                <article class="terminal-window">
+                    <header class="terminal-bar">
+                        <div class="terminal-dots">
+                            <span></span><span></span>
+                        </div>
+                        <span class="terminal-title">&gt; contact.sh</span>
+                    </header>
+                    <div class="terminal-body">
+                        <form id="contact-form">
+                            <fieldset>
+                                <legend>// TRANSMISSION FORM</legend>
+
+                                <label for="contact-name"
+                                    >&gt; enter NAME:</label
+                                >
+                                <input
+                                    type="text"
+                                    id="contact-name"
+                                    name="name"
+                                    placeholder="Your name"
+                                    required
+                                />
+
+                                <label for="contact-email"
+                                    >&gt; enter EMAIL:</label
+                                >
+                                <input
+                                    type="email"
+                                    id="contact-email"
+                                    name="email"
+                                    placeholder="you@domain.com"
+                                    required
+                                />
+
+                                <label for="contact-subject"
+                                    >&gt; select SUBJECT:</label
+                                >
+                                <select id="contact-subject" name="subject">
+                                    <option value="Collaboration">
+                                        Collaboration
+                                    </option>
+                                    <option value="Inquiry">Inquiry</option>
+                                    <option value="Job Opportunity">
+                                        Job Opportunity
+                                    </option>
+                                    <option value="Other">Other</option>
+                                </select>
+
+                                <label for="contact-message"
+                                    >&gt; enter MESSAGE:</label
+                                >
+                                <textarea
+                                    id="contact-message"
+                                    name="message"
+                                    rows="4"
+                                    placeholder="Type your message here..."
+                                    required
+                                ></textarea>
+
+                                <label for="contact-clearance"
+                                    >&gt; enter SECURITY_CLEARANCE:</label
+                                >
+                                <input
+                                    type="password"
+                                    id="contact-clearance"
+                                    name="clearance"
+                                    placeholder="********"
+                                />
+
+                                <input
+                                    type="hidden"
+                                    name="form-version"
+                                    value="1.0"
+                                />
+                                <button type="submit">&gt; SEND_MESSAGE</button>
+                            </fieldset>
+                        </form>
+                        <div id="form-output"></div>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <!-- ----- FOOTER -----
+    Just a simple closing line so the page ends like a terminal echo. -->
+        <footer>
+            <p>&gt; echo "C.K.Ortiz @ 2026"</p>
+        </footer>
+
+        <!-- cordova.js is injected by Cordova at build time and exposes the
+             native bridge used by the status bar plugin. In a plain browser
+             (XAMPP preview) the request 404s harmlessly. -->
+        <script src="cordova.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
